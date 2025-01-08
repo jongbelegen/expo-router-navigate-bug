@@ -45,3 +45,6 @@ remain functional.
 - The issue consistently occurs after the first round-trip navigation
 - Native navigation gestures remain functional despite the touch interaction bug
 - Refer to "/recording.mov" for a visual demonstration of the issue
+
+
+https://github.com/user-attachments/assets/609db35c-cbbc-4171-baf5-702ac8d758c7
