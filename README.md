@@ -1,50 +1,47 @@
-# Welcome to your Expo app 👋
+I'll rewrite this bug report in a clearer, more structured format:
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Expo Router Navigation Bug Report
 
-## Get started
+## Issue Summary
 
-1. Install dependencies
+Navigation between screens becomes unresponsive after a single round-trip navigation, though native navigation gestures
+remain functional.
 
-   ```bash
-   npm install
-   ```
+## Environment
 
-2. Start the app
+- Project Type: New Expo application
+- Setup Method: Created via `pnpm dlx create-expo-app@latest`
+- Project Name: expo-router-navigate-bug
 
-   ```bash
-    npx expo start
-   ```
+## Setup Steps
 
-In the output, you'll find options to open the app in a
+1. Created new Expo project
+2. Modified `package.json` to include development build configuration
+3. Created three route files:
+    - `index.tsx`
+    - `a.tsx`
+    - `b.tsx`
+4. Implemented navigation between these screens
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+## Steps to Reproduce
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+1. Execute `pnpm ios` in the project root
+2. Launch the application on an iOS device
+3. Navigate between screens using the provided navigation buttons repeatedly
 
-## Get a fresh project
+## Expected Behavior
 
-When you're ready, run:
+- Users should be able to navigate indefinitely between screens using the in-app navigation buttons
 
-```bash
-npm run reset-project
-```
+## Actual Behavior
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+- After one complete navigation cycle:
+    - All touch interactions on the screen become unresponsive
+    - This includes buttons and scroll views
+    - Native navigation methods still work (iOS back gesture, system back button)
 
-## Learn more
+## Additional Notes
 
-To learn more about developing your project with Expo, look at the following resources:
-
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
-
-## Join the community
-
-Join our community of developers creating universal apps.
-
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+- The issue consistently occurs after the first round-trip navigation
+- Native navigation gestures remain functional despite the touch interaction bug
+- Refer to "/recording.mov" for a visual demonstration of the issue
